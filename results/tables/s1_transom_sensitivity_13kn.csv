@@ -1,0 +1,13 @@
+at_source,case,hm_version,at_m2,rtr_kn,rt_kn,rt_err_pct
+zero,navcad_inputs,1982,0.0000,0.0000,642.0311,0.9642
+zero,navcad_inputs,1984,0.0000,0.0000,623.2073,-1.9960
+zero,rebuilt_hull,1982,0.0000,0.0000,635.6626,-0.0373
+zero,rebuilt_hull,1984,0.0000,0.0000,621.3735,-2.2844
+navcad_rtr,navcad_inputs,1982,10.0000,11.3500,653.0226,2.6927
+navcad_rtr,navcad_inputs,1984,10.0000,11.3500,634.1987,-0.2675
+navcad_rtr,rebuilt_hull,1982,9.9928,11.3500,646.6718,1.6940
+navcad_rtr,rebuilt_hull,1984,9.9928,11.3500,632.3851,-0.5528
+station0,navcad_inputs,1982,22.4326,51.1769,692.4039,8.8857
+station0,navcad_inputs,1984,22.4326,51.1769,673.5797,5.9254
+station0,rebuilt_hull,1982,22.4326,51.2079,686.1056,7.8952
+station0,rebuilt_hull,1984,22.4326,51.2079,671.8217,5.6490

@@ -1,0 +1,16 @@
+displacement_basis,lightship_basis,displacement_t,lightship_t,deadweight_t,margin_to_75000_t,meets_requirement
+design equation (REPORT p.19),"detailed, Table 6.1",88409.03,13248.99,75160.04,160.04,True
+design equation (REPORT p.19),"preliminary, Table 2.4",88409.03,13250.49,75158.54,158.54,True
+design equation (REPORT p.19),loading-condition tables p.101-105 (DISC-11),88409.03,10926.83,77482.20,2482.20,True
+"offsets, PCHIP, x1.006","detailed, Table 6.1",86973.88,13248.99,73724.89,-1275.11,False
+"offsets, PCHIP, x1.006","preliminary, Table 2.4",86973.88,13250.49,73723.39,-1276.61,False
+"offsets, PCHIP, x1.006",loading-condition tables p.101-105 (DISC-11),86973.88,10926.83,76047.05,1047.05,True
+"offsets, linear, x1.006","detailed, Table 6.1",86494.12,13248.99,73245.13,-1754.87,False
+"offsets, linear, x1.006","preliminary, Table 2.4",86494.12,13250.49,73243.63,-1756.37,False
+"offsets, linear, x1.006",loading-condition tables p.101-105 (DISC-11),86494.12,10926.83,75567.29,567.29,True
+"offsets, PCHIP, no shell factor","detailed, Table 6.1",86455.14,13248.99,73206.15,-1793.85,False
+"offsets, PCHIP, no shell factor","preliminary, Table 2.4",86455.14,13250.49,73204.65,-1795.35,False
+"offsets, PCHIP, no shell factor",loading-condition tables p.101-105 (DISC-11),86455.14,10926.83,75528.31,528.31,True
+"2019 software hull, Table 3.4 / p.57","detailed, Table 6.1",84755.00,13248.99,71506.01,-3493.99,False
+"2019 software hull, Table 3.4 / p.57","preliminary, Table 2.4",84755.00,13250.49,71504.51,-3495.49,False
+"2019 software hull, Table 3.4 / p.57",loading-condition tables p.101-105 (DISC-11),84755.00,10926.83,73828.17,-1171.83,False

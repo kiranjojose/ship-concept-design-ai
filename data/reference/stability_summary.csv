@@ -1,0 +1,8 @@
+# Trim values in Tables 7.4/7.6/7.8 are internally inconsistent (TRIM printed 16.98-21.05 m vs aft/fwd drafts differing by 0.09 m); left null.
+condition,displacement_t,draught_m,trim_m_by_stern,kg_m,gmt_m,area_0_30_mrad,area_0_40_mrad,area_30_40_mrad,gz_max_m,angle_gz_max_deg,source
+full_load_departure_rice,,14.46,0.512,10.7,3.185,0.4523,0.727,0.2747,1.603,37.3,"p.102 Table 7.2, p.107 Table 7.10"
+full_load_arrival_rice,86071,14.4,,,2.97,0.42,0.67,0.25,1.47,35.5,"p.103 Table 7.4, p.108 Table 7.12"
+full_load_departure_oats,86104,14.4,,,3.15,0.44,0.72,0.28,1.57,36.4,"p.104 Table 7.6, p.109 Table 7.13"
+full_load_arrival_oats,85981,14.4,,,2.873,0.41,0.6564,0.2464,1.417,34.5,"p.105 Table 7.8, p.111 Table 7.16"
+ballast_departure,,,,,,,,,,,"listed p.100, not presented"
+ballast_arrival,,,,,,,,,,,"listed p.100, not presented"

@@ -1,0 +1,13 @@
+# Design-space bounds (WP3). DELIBERATELY NULL until bounds are agreed.
+# Candidate evidence, for information only (not adopted):
+#   - parent ships (Table 2.1, n=16): LBP 216-218 m, B 32.2-36.5 m, D 18.35-19.8 m, T 12.63-14.233 m
+#   - report sweep (Table 2.3): LBP 200-240 m at fixed parent-ship ratios
+#   - port limits: Hay Point LOA<=300 m, B<=53 m, T<=17.6 m; Bhorsagar depth 16.41 m
+#   - Holtrop-Mennen validity limits to be added from the method paper in WP2
+design_space:
+  lpp_m:             {min: null, max: null}
+  breadth_m:         {min: null, max: null}
+  draught_m:         {min: null, max: null}
+  depth_m:           {min: null, max: null}
+  block_coefficient: {min: null, max: null}
+  service_speed_kn:  {fixed: 13.0}   # requirement, REPORT p.8

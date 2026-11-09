@@ -1,0 +1,41 @@
+# Benchmark: numerical example in Holtrop & Mennen (1982), "An approximate power prediction
+# method", Int. Shipbuilding Progress 29(335), printed p.170.
+#
+# status:
+#   confirmed = checked against the published scan of p.170 by Kiran (2026-11-09)
+#   inferred  = not printed; back-inferred from the printed worked outputs
+#
+# OPEN ISSUE (benchmark not fully reconciled, see docs/validation_sprint1.md 3.1):
+#   * LCB: the printed -2.02 % gives 1+k1 = 1.16247 and iE = 11.841 deg with the printed
+#     formulas. The printed intermediate results (1.156, 12.08 deg) are reproduced only with
+#     lcb = -0.75 % (LR = 81.385 m). The inconsistency appears to be in the worked example itself.
+#   * RA: engine 220.57 kN vs printed 221.98 kN (-0.64 %), cause not identified.
+inputs:
+  L_m:            {value: 205.0, status: confirmed, note: "LWL; used as L in the method"}
+  Lpp_m:          {value: 200.0, status: confirmed, note: "printed, not used by the method as implemented"}
+  B_m:            {value: 32.0, status: confirmed}
+  TF_m:           {value: 10.0, status: confirmed}
+  TA_m:           {value: 10.0, status: confirmed}
+  volume_m3:      {value: 37500.0, status: confirmed}
+  lcb_pct:        {value: -2.02, status: confirmed, note: "printed: 2.02 % aft of 1/2 LWL"}
+  lcb_pct_inferred: {value: -0.75, status: inferred, note: "reproduces printed 1+k1, iE and LR-dependent outputs; not printed"}
+  abt_m2:         {value: 20.0, status: confirmed}
+  hb_m:           {value: 4.0, status: confirmed}
+  cm:             {value: 0.98, status: confirmed}
+  cwp:            {value: 0.75, status: confirmed}
+  at_m2:          {value: 16.0, status: confirmed}
+  s_app_m2:       {value: 50.0, status: confirmed}
+  k2_app:         {value: 1.5, status: confirmed}
+  c_stern:        {value: 10.0, status: confirmed}
+  speed_kn:       {value: 25.0, status: confirmed}
+results:
+  one_plus_k1:    {value: 1.156, status: confirmed}
+  ie_deg:         {value: 12.08, status: confirmed}
+  S_m2:           {value: 7381.45, status: confirmed}
+  rf_kn:          {value: 869.63, status: confirmed}
+  rapp_kn:        {value: 8.83, status: confirmed}
+  rw_kn:          {value: 557.11, status: confirmed}
+  rb_kn:          {value: 0.049, status: confirmed}
+  rtr_kn:         {value: 0.00, status: confirmed}
+  ra_kn:          {value: 221.98, status: confirmed}
+  rt_kn:          {value: 1793.26, status: confirmed}

@@ -1,0 +1,17 @@
+displacement_basis,name,value,limit,sense,margin,satisfied,source,note,overall_status
+"design equation (88,409 t)",draught vs Bhorsagar depth,14.2900,16.4100,<=,2.1200,True,REPORT p.9,no under-keel clearance applied,unknown
+"design equation (88,409 t)",draught vs Hay Point,14.2900,17.6000,<=,3.3100,True,REPORT p.9,,unknown
+"design equation (88,409 t)",beam vs Hay Point,32.7800,53.0000,<=,20.2200,True,REPORT p.9,,unknown
+"design equation (88,409 t)",LOA vs Hay Point,,300.0000,<=,,,REPORT p.9,LOA not in report (MISS-09),unknown
+"design equation (88,409 t)",freeboard D-T,5.4600,5.0000,>=,0.4600,True,"REPORT p.43-44, ILLC Type B-60 (depth correction used D=18.23, DISC-04)",,unknown
+"design equation (88,409 t)",deadweight = displacement - lightship,75160.0400,75000.0000,>=,160.0400,True,REPORT p.8 owner requirement,,unknown
+"design equation (88,409 t)",GM0 (KM - KG),2.9064,0.1500,>=,2.7564,True,"IMO IS Code 2008, Part A 2.2.4 (criterion listed REPORT p.106)","KG 10.70 m, full-load departure (rice), REPORT Table 7.2",unknown
+"design equation (88,409 t)",hold volume / cargo mass,0.9989,0.9800,>=,0.0189,True,"REPORT p.8, oats (rice 0.95)",,unknown
+"rebuilt hull, with shell 1.006",draught vs Bhorsagar depth,14.2900,16.4100,<=,2.1200,True,REPORT p.9,no under-keel clearance applied,fail
+"rebuilt hull, with shell 1.006",draught vs Hay Point,14.2900,17.6000,<=,3.3100,True,REPORT p.9,,fail
+"rebuilt hull, with shell 1.006",beam vs Hay Point,32.7800,53.0000,<=,20.2200,True,REPORT p.9,,fail
+"rebuilt hull, with shell 1.006",LOA vs Hay Point,,300.0000,<=,,,REPORT p.9,LOA not in report (MISS-09),fail
+"rebuilt hull, with shell 1.006",freeboard D-T,5.4600,5.0000,>=,0.4600,True,"REPORT p.43-44, ILLC Type B-60 (depth correction used D=18.23, DISC-04)",,fail
+"rebuilt hull, with shell 1.006",deadweight = displacement - lightship,73724.8853,75000.0000,>=,-1275.1147,False,REPORT p.8 owner requirement,,fail
+"rebuilt hull, with shell 1.006",GM0 (KM - KG),2.9064,0.1500,>=,2.7564,True,"IMO IS Code 2008, Part A 2.2.4 (criterion listed REPORT p.106)","KG 10.70 m, full-load departure (rice), REPORT Table 7.2",fail
+"rebuilt hull, with shell 1.006",hold volume / cargo mass,0.9989,0.9800,>=,0.0189,True,"REPORT p.8, oats (rice 0.95)",,fail

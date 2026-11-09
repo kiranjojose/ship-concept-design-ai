@@ -1,0 +1,10 @@
+# Source: REPORT p.93 Table 6.1. Note text gives OU/2=669.43 t but table uses 696.43; main engine 46 t is implausibly low for an S80MC (to verify).
+item,mass_t,lcg_m_from_ap,vcg_m_from_keel
+steel,11047.75,108.68,11.17
+outfit_half_superstructure,696.43,26.239,28.55
+outfit_half_main_deck,696.43,110.25,19.75
+main_engine,46,21.46,5.55
+shaft,23.8397,10.7,4.36
+propeller,43.2,2.9,5.4
+rest_of_engine_plant,695.34,24.12,8.92
+TOTAL_as_printed,13248.99,100.335,12.247

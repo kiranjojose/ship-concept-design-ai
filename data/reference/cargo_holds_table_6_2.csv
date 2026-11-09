@@ -1,0 +1,9 @@
+# Source: REPORT p.95 Table 6.2 and p.101/104. Sum of volumes = 74177.11 m3 (printed total 68429.82). Rice loads equal hold volumes numerically.
+hold,volume_m3,lcg_m_from_ap,vcg_m,rice_load_t_table_7_1,oats_load_t_table_7_5
+CARGO 7,12578.94,54,10.569,12578.94,11998.97
+CARGO 6,12959.78,77.8,10.717,12959.78,12646.97
+CARGO 5,12688.08,101.6,10.753,12688.08,12675.24
+CARGO 4,12189.6,125.4,10.753,12189.6,12676.76
+CARGO 3,11180.78,149.2,10.752,11180.78,12367.94
+CARGO 2,8560.535,172.25,10.7,8560.535,7048.75
+CARGO 1,4019.396,194.6,10.88,4019.396,4208.5

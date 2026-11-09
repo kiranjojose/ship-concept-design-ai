@@ -1,0 +1,7 @@
+__pycache__/
+*.egg-info/
+.venv/
+.pytest_cache/
+# raw source documents: check ownership/redistribution before committing
+data/raw/*
+!data/raw/README.md

@@ -1,0 +1,167 @@
+{
+  "design_draught_hydrostatics": {
+    "draught_m": 14.29,
+    "volume_m3": 84346.48238533793,
+    "displacement_t": 86455.14444497137,
+    "displacement_shell_t": 86973.8753116412,
+    "lcb_m_from_ap": 112.15544443207956,
+    "kb_m": 7.466838102891887,
+    "waterplane_area_m2": 6445.748800515429,
+    "lcf_m_from_ap": 108.51915543242151,
+    "bmt_m": 6.139610594486688,
+    "bml_m": 255.85318106921693,
+    "kmt_m": 13.606448697378575,
+    "tpc_t_per_cm": 66.06892520528314,
+    "mct_t_m_per_cm": 1003.16660889091,
+    "beam_wl_m": 32.78,
+    "midship_area_m2": 464.3968807026177,
+    "cb": 0.8166147189006951,
+    "cm": 0.991398176922251,
+    "cp": 0.8237000409218395,
+    "cwp": 0.8917761093354347,
+    "wetted_surface_m2": 11480.98041575425,
+    "length_basis": "LPP",
+    "length_m": 220.5
+  },
+  "holtrop_inputs": {
+    "navcad_inputs": {
+      "L": 220.5,
+      "B": 32.7809,
+      "T": 14.29115,
+      "volume": 85738.27405479053,
+      "lcb_pct": 0.8641471347299603,
+      "cm": 0.992,
+      "cwp": 0.894,
+      "S": 11356.43,
+      "TF": 14.29115,
+      "TA": 14.29115,
+      "abt": 43.42301558205033,
+      "hb": 5.693447670131403,
+      "at": 10.000001161649319,
+      "ie_deg": 38.55,
+      "c_stern": 0.0,
+      "s_app": 97.84730435771073,
+      "k2_app": 1.5,
+      "rho": 1025.0,
+      "nu": 1.18831e-06,
+      "notes": {
+        "printed (p.60)": "L, B, T, CB, S, CWP",
+        "cm": "REPORT p.20 (0.9+0.1CB)",
+        "ie_deg": "REPORT p.21",
+        "lcb_pct": "rebuilt hull, LCB 112.16 m from AP (MISS-08)",
+        "abt, hb": "rebuilt hull, immersed section at FP (station 20)",
+        "at": "AT=10.00 m2 inverted from REPORT Table 4.2 RTR at 13 kn (MISS-08)",
+        "appendages": "A9: rudder only, DNV area guideline, (1+k2)=1.5",
+        "c_stern": "0 (normal section), assumption A10"
+      }
+    },
+    "rebuilt_hull": {
+      "L": 220.5,
+      "B": 32.78,
+      "T": 14.29,
+      "volume": 84346.48238533793,
+      "lcb_pct": 0.8641471347299603,
+      "cm": 0.991398176922251,
+      "cwp": 0.8917761093354347,
+      "S": 11480.98041575425,
+      "TF": 14.29,
+      "TA": 14.29,
+      "abt": 43.42301558205033,
+      "hb": 5.693447670131403,
+      "at": 9.992753863740493,
+      "ie_deg": 38.55,
+      "c_stern": 0.0,
+      "s_app": 97.83751867573696,
+      "k2_app": 1.5,
+      "rho": 1025.0,
+      "nu": 1.18831e-06,
+      "notes": {
+        "geometry": "all from offsets Table 3.2 at T=14.29 m (A7 waterline heights)",
+        "L": "LBP used as waterline length (offsets stop at AP/FP)",
+        "ie_deg": "REPORT p.21",
+        "abt, hb": "rebuilt hull, immersed section at FP (station 20)",
+        "at": "AT=9.99 m2 inverted from REPORT Table 4.2 RTR at 13 kn (MISS-08)",
+        "appendages": "A9: rudder only, DNV area guideline, (1+k2)=1.5",
+        "c_stern": "0 (normal section), assumption A10"
+      }
+    }
+  },
+  "validity_13kn": {
+    "navcad_inputs": {
+      "fn": {
+        "value": 0.14379475106312775,
+        "range": [
+          0.0,
+          0.24
+        ],
+        "inside": true
+      },
+      "cp": {
+        "value": 0.8366935483870968,
+        "range": [
+          0.73,
+          0.85
+        ],
+        "inside": true
+      },
+      "L/B": {
+        "value": 6.726477918544029,
+        "range": [
+          5.1,
+          7.1
+        ],
+        "inside": true
+      },
+      "B/T": {
+        "value": 2.2937902128240206,
+        "range": [
+          2.4,
+          3.2
+        ],
+        "inside": false
+      }
+    },
+    "rebuilt_hull": {
+      "fn": {
+        "value": 0.14379475106312775,
+        "range": [
+          0.0,
+          0.24
+        ],
+        "inside": true
+      },
+      "cp": {
+        "value": 0.8237000409218395,
+        "range": [
+          0.73,
+          0.85
+        ],
+        "inside": true
+      },
+      "L/B": {
+        "value": 6.72666259914582,
+        "range": [
+          5.1,
+          7.1
+        ],
+        "inside": true
+      },
+      "B/T": {
+        "value": 2.2939118264520646,
+        "range": [
+          2.4,
+          3.2
+        ],
+        "inside": false
+      }
+    }
+  },
+  "holtrop_propulsion_factors_D9.4_not_for_sizing": {
+    "w": 0.43365325771823693,
+    "t": 0.1845038071747385,
+    "eta_r": 1.0312300196641844,
+    "eta_h": 1.4399238698534689,
+    "eta_d_with_report_eta_o": 0.9250881649487028,
+    "status": "excluded from engine sizing (no supported propeller operating point)"
+  }
+}

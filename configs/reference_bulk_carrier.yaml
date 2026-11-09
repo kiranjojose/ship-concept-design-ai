@@ -1,0 +1,355 @@
+# D1.1  Structured reference design dataset  (DRAFT v0.1, 2026-11-07)
+#
+# Source: K. J. Puthussery, "Design of 75,000 Deadweight Bulk Carrier of 13 Knots
+#         Service Speed", B.Tech project report, Dept. of Naval Architecture and
+#         Ship Building, SNGCE / APJ Abdul Kalam Technological University, May 2019.
+#         Cited below as REPORT. "p." = printed page number, not PDF page.
+#
+# Rules for this file
+#   * Every value carries a unit and a source location in REPORT.
+#   * Nothing is invented. Values the report does not contain are null.
+#   * Where the report gives conflicting values, `value` holds the one adopted as
+#     the reference and `conflicts` lists the others. See docs/missing_data_register.md
+#     (IDs like DISC-03) for the reasoning.
+#   * `status`: reported  = transcribed as printed
+#               derived   = computed here from reported values (method stated)
+#               adopted   = chosen among conflicting reported values
+#               missing   = not in the report
+
+project:
+  name: reference_bulk_carrier
+  vessel_type: bulk_carrier
+  design_stage: preliminary_concept (B.Tech design project)
+  author: Kiran Jose Puthussery
+  year: 2019
+  classification_basis: Lloyd's Register (LRS) rules; IMO intact stability criteria
+  hull_form_basis: BSRA methodical series, modified to transom stern, bulbous bow
+
+requirements:
+  deadweight_tonnes:
+    value: 75000
+    unit: t
+    status: reported
+    source: "title page; p.8 (2.2); p.138 Table 9.1"
+  service_speed_knots:
+    value: 13.0
+    unit: kn
+    status: reported
+    source: "title; p.8 (2.2); p.9 (2.4)"
+    conflicts:
+      - {value: 16.5, source: "p.14 (2.11) 'service speed of 16.5 knots, trial 17.325'", note: "text not used in calc; see DISC-02"}
+  trial_speed_knots:
+    value: 13.65
+    unit: kn
+    status: derived
+    note: "Vokes PD=7782.89 kW in Table 2.4 is reproduced only with V=13.65 kn (=1.05 x 13). Not stated explicitly."
+    source: "p.17-19"
+  operating_range_nm:
+    value: 6323
+    unit: nmi
+    status: adopted
+    source: "p.8 (2.2 mission analysis)"
+    conflicts:
+      - {value: 6023, source: "p.10 (2.6), 5475 nm +10%"}
+      - {value: 6223, source: "p.31-32 (2.25), used in fuel mass calc"}
+      - {value: 5840, source: "p.138 Table 9.1"}
+    note: "see DISC-01"
+  cargo:
+    value: [rice, oats]
+    status: reported
+    source: "p.8 (2.2, 2.3)"
+    stowage_factor_m3_per_t: {rice: 0.95, oats: 0.98}
+    conflicts:
+      - {value: [iron ore, coal], source: "p.138 (9.2)"}
+  trade_route:
+    value: "Bhorsagar Deep Sea Port (West Bengal, India) <-> Hay Point (Australia)"
+    status: reported
+    source: "p.8-9"
+    conflicts:
+      - {value: "Mumbai <-> Adelaide", source: "p.10 (2.6), p.138 (9.2)"}
+  port_limits:
+    bhorsagar_available_depth_m: {value: 16.41, unit: m, source: p.9}
+    hay_point_max_loa_m: {value: 300, unit: m, source: p.9}
+    hay_point_max_beam_m: {value: 53, unit: m, source: p.9}
+    hay_point_max_draught_m: {value: 17.6, unit: m, source: p.9}
+  complement:
+    value: 29
+    unit: persons
+    breakdown: {officers: 9, crew: 20}
+    status: reported
+    source: "p.82 (5.9); p.139 (9.4)"
+  propulsion_arrangement: {value: "single screw, diesel, engine room aft", source: "p.9 (2.4); p.64 (4.2.2)"}
+  own_cargo_gear: {value: false, source: "p.10 (2.7)"}
+
+principal_dimensions:
+  lpp_m:
+    value: 220.5
+    unit: m
+    status: reported
+    source: "p.19 Table 2.4; p.46 Table 2.12; p.138 Table 9.1"
+    note: "Several rule calculations (frame spacing, bulkheads, freeboard depth correction) use L = 198.80 m instead. See DISC-05."
+  lwl_m:
+    value: 220.5
+    unit: m
+    status: reported
+    source: "p.60 (NavCad input, LWL set equal to LBP)"
+    conflicts:
+      - {value: 228.149, source: "p.57 hydrostatics at design draught (modelled hull)"}
+  breadth_m:
+    value: 32.78
+    unit: m
+    status: reported
+    source: "p.19 Table 2.4; Table 2.12; Table 9.1"
+    precise_value: 32.7809   # p.60 NavCad input
+  depth_m:
+    value: 19.75
+    unit: m
+    status: adopted
+    source: "p.19 Table 2.4; p.44 (freeboard: 19.75-14.29); Table 9.1"
+    conflicts:
+      - {value: 18.23, source: "p.46 Table 2.12 'Final main dimensions'; p.43 freeboard depth correction"}
+    note: "see DISC-04"
+  draught_m:
+    value: 14.29
+    unit: m
+    status: adopted
+    source: "p.19 Table 2.4; p.57; Table 9.1"
+    precise_value: 14.29115  # p.60 NavCad input
+    conflicts:
+      - {value: 19.79, source: "p.46 Table 2.12 (typo, exceeds depth)"}
+  block_coefficient:
+    value: 0.83
+    unit: "-"
+    status: adopted
+    source: "p.60 NavCad input Cb=0.83; displacement 88409.03 t back-calculates to CB=0.8301"
+    conflicts:
+      - {value: 0.82, source: "p.19 Table 2.4; Table 2.12; Table 9.1"}
+      - {value: 0.774, source: "p.57 modelled hull at T=14.29 (based on LWL=228.149)"}
+      - {value: 0.846, source: "derived: Dankwardt formula as written on p.16 at Fn=0.1438"}
+    note: "see DISC-03"
+  midship_coefficient:   {value: 0.992, unit: "-", status: reported, source: "p.20, CM=0.9+0.1CB"}
+  prismatic_coefficient: {value: 0.8366, unit: "-", status: reported, source: "p.20, CP=CB/CM"}
+  waterplane_coefficient:
+    value: 0.8947
+    unit: "-"
+    status: reported
+    source: "p.19, CW=0.76CB+0.273"
+    conflicts:
+      - {value: 0.901, source: "p.41 stability check"}
+      - {value: 0.871, source: "p.57 modelled hull"}
+  froude_number:
+    value: 0.1438
+    unit: "-"
+    status: derived
+    note: "V=13 kn, L=220.5 m, g=9.81. Report rounds to 0.14."
+  length_overall_m: {value: null, status: missing}
+  bilge_radius_m: {value: 2.4, unit: m, status: reported, source: "p.31 (2.23)"}
+  double_bottom_height_m: {value: 1.7, unit: m, status: reported, source: "p.30; p.140"}
+  forecastle: {height_m: 2.4, length_m: 15.43, source: "p.31 (2.22)"}
+  parallel_middle_body:
+    length_m: 73.49
+    fraction_of_lbp: 0.3333
+    half_angle_of_entrance_deg: 38.55
+    source: "p.21 (2.15), from BSRA charts"
+  dimensional_ratios:
+    note: "Ratios from final dimensions (L=220.5, B=32.78, D=19.75, T=14.29)."
+    L_B: 6.727
+    L_D: 11.165
+    B_D: 1.660
+    B_T: 2.294
+    D_T: 1.382
+    status: derived
+
+reference_results:
+  displacement:
+    design_equation_t:
+      value: 88409.03
+      unit: t
+      status: reported
+      method: "L*B*T*CB*1.025*(1+0.006)  (rho_sw=1.025 t/m3, shell factor 1.006)"
+      source: "p.19 Table 2.4; p.33 (2.26)"
+    modelled_hull_at_design_draught_t:
+      value: 84755
+      unit: t
+      status: reported
+      method: "hydrostatics software output (likely MAXSURF/Hydromax format) on faired BSRA-based hull"
+      source: "p.57 (3.4.1)"
+      note: "4.1% below design-equation displacement. See DISC-06."
+  lightship_mass_t:
+    value: 13248.99
+    unit: t
+    status: reported
+    source: "p.93 Table 6.1 (detailed); p.19 Table 2.4 gives 13250.49 (preliminary)"
+    lcg_m_from_ap: 100.335
+    vcg_m_from_keel: 12.247
+    conflicts:
+      - {value: 10926.83, source: "p.101-105 loading condition tables"}
+    breakdown_preliminary_t:   # p.19 Table 2.4, Watson-Gilfillan
+      steel: 11047.88
+      outfit: 1392.87
+      machinery: 809.73
+  deadweight_achieved_t:
+    value: 75160.04
+    unit: t
+    status: reported
+    source: "p.94 (6.1.3); Table 2.4 gives 75158.54"
+  cargo_mass_t:
+    value: 74260.13
+    unit: t
+    status: reported
+    source: "p.94"
+  consumables_t:
+    heavy_fuel_oil: {value: 553.01, source: "p.94 (detailed)", preliminary: 630.50}
+    diesel_oil: {value: 211.89, source: p.94, preliminary: 210.50}
+    lube_oil: {value: 32.80, source: p.94, preliminary: 32.56}
+    fresh_water: {value: 58.4, source: p.94, preliminary: 59.12}
+    provisions: {value: 3.07, source: p.94, preliminary: 3.82}
+    crew_and_effects: {value: 3.75, source: p.94, preliminary: 3.87}
+    total_stores: {value: 899.91, source: p.94, preliminary: 907.6}
+    sfc_g_per_kwh: {value: 166, source: "p.31"}
+  wetted_surface_m2:
+    value: 11356.43
+    unit: m2
+    status: reported
+    source: "p.60 (NavCad input)"
+    conflicts:
+      - {value: 11278.607, source: "p.57 modelled hull"}
+  resistance_kn:
+    value: 635.9
+    unit: kN
+    at_speed_kn: 13.0
+    status: reported
+    method: "Holtrop-Mennen, computed in NavCad"
+    source: "p.62 Table 4.2"
+    components_kn: {Rf: 394.98, Rw: 4.83e-7, Rb: 0.0062, Ra: 88.83, Rtr: 11.35, Rapp: 20.82}
+    note: "Components sum to 516.0 kN; difference implies form factor (1+k1)~1.30 on Rf. Not stated. Second table (Table 4.1, labelled 'MAXSURF') gives 584.6 kN at 13 kn. Report text says the BSRA method was adopted, but no BSRA or Guldhammer-Harvald results are shown. See DISC-07."
+    alternative:
+      - {value: 584.624, unit: kN, method: "labelled 'resistance measurement by maxsurf'", source: "p.61 Table 4.1"}
+  navcad_transom_area_m2:
+    value: 10.0
+    unit: m2
+    status: derived
+    method: "inversion of Holtrop RTR = 11.35 kN at 13 kn (Table 4.2); reproduces RTR at all 8 speeds within 0.1 %"
+    source: "p.62 Table 4.2; see docs/validation_sprint1.md section 3"
+  effective_power_kw:
+    value: 4249.08
+    unit: kW
+    at_speed_kn: 13.0
+    status: reported
+    source: "p.62 Table 4.2"
+    alternative:
+      - {value: 3909.84, source: "p.61 Table 4.1"}
+  propulsive_factors:
+    wake_fraction: {value: 0.38, method: "Taylor 0.5CB-0.05 (Heckscher gives 0.406)", source: p.66}
+    thrust_deduction: {value: 0.26, method: "Heckscher 0.5CP-0.12", source: p.67}
+    relative_rotative_efficiency: {value: 1.05, source: "p.67, assumed"}
+    hull_efficiency: {value: 0.98, source: "p.67 (as printed; (1-0.26)/(1-0.38)=1.19)"}
+    qpc: {value: 0.60, source: "p.36-37; alt. formula gives 0.643"}
+    shaft_efficiency: {value: 0.97, source: p.37}
+    open_water_efficiency: {value: 0.623, source: "p.71 final propeller"}
+  delivered_power_kw:
+    value: 6817.83
+    unit: kW
+    status: reported
+    source: "p.37 (2.29)"
+    note: "Not reproducible from Pe/(QPC*eta_s): 4249/(0.6*0.97)=7301 kW, 3910/(0.6*0.97)=6718 kW. See DISC-08."
+    preliminary_vokes: {value: 7782.89, source: "p.19, PD=Disp^0.567*V^3.6/1000 at V=13.65 kn"}
+  brake_power_kw:
+    value: null
+    status: adopted_null
+    note: "Report gives 8020.98 kW (p.37, PD/0.85 MCR), 7938.55 kW (p.19, 1.02*PD), and 6818.00 kW (p.70, after '10% allowance'). No single defensible value; to be recomputed in WP2. See DISC-08."
+    candidates_kw: [8020.98, 7938.55, 6818.00]
+  main_engine:
+    make_model: "MAN B&W S80MC, 6 cylinders"
+    rpm: 59
+    bore_mm: 800
+    stroke_mm: 3056
+    mep_bar: 12.2
+    power_kw: null   # printed as "7360-100400 kW" (garbled)
+    source: "p.70"
+    conflicts:
+      - {value: "8 cylinders", source: "p.151 conclusion"}
+  propeller:
+    type: "Wageningen B-series, 3 blades (text) / 4 blades (sizing table)"
+    rpm: 60
+    max_diameter_m: 9.4
+    diameter_m: null   # sizing table gives 10.27-10.48 m (> max 9.4); final table 'Depth 8.50' ambiguous
+    ae_ao: 0.35
+    p_d: 0.7
+    eta_o: 0.623
+    source: "p.66-71"
+    note: "see DISC-09"
+  hydrostatics_at_design_draught:
+    source: "p.57 (3.4.1), modelled hull, even keel, T=14.29 m"
+    waterplane_area_m2: 6511.062
+    lcb_m_from_zero: 111.863
+    lcf_m_from_zero: 107.107
+    kb_m: 7.608
+    bmt_m: 6.245
+    bml_m: 271.730
+    kmt_m: 13.853
+    tpc_t_per_cm: 66.738
+    mct_t_m: 1018.780
+    note: "Origin of 'zero pt.' not stated. KG in this output = draught (software default), so GMt -0.437 is not meaningful."
+  hydrostatic_table_file: data/reference/hydrostatics_table_3_4.csv
+  capacities_m3:
+    cargo_holds_total:
+      value: 74177.11
+      status: derived
+      method: "sum of Table 6.2 hold volumes"
+      conflicts:
+        - {value: 68429.82, source: "p.97 printed total of the same table"}
+        - {value: 82861.19, source: "p.40 preliminary estimate; p.139 Table 9.2"}
+      note: "see DISC-10"
+    saddle_tanks_total: {value: 7527.22, source: "p.97", conflict_table_9_2: 3674.97}
+    hopper_tanks_total: {value: 2763.56, source: "p.97", conflict_table_9_2: 803.84}
+    double_bottom_total: {value: 6054.08, source: "p.97", conflict_table_9_2: 6571.20}
+    fore_peak: {value: 3175.326, source: "p.97 Table 6.6"}
+    aft_peak: {value: 1269.296, source: "p.97 Table 6.6"}
+  intact_stability_summary:
+    method: "Autohydro + KN curves (Krylov)"
+    criteria: "IMO intact stability general criteria as listed on p.106"
+    file: data/reference/stability_summary.csv
+    note: "Only 4 full-load conditions are presented. Ballast conditions are listed as studied (p.100, p.151) but not shown."
+  freeboard:
+    type: "Type B-60"
+    required_mm: 5000.01
+    available_mm: 5460
+    source: "p.43-44"
+    note: "Depth correction uses D=18.23 and L=198.8."
+  minimum_bow_height_mm: {value: 6115.99, source: "p.30-31"}
+  structural: "Midship scantlings per LR rules (Ch. 8). Out of scope for Phase A; not transcribed."
+
+method_chain:   # what the report actually used, in order (see docs/traditional_design_workflow.md)
+  - {step: parent_ship_regression, method: "16 parent ships, log fits of ratios vs DWT", source: "p.10-13"}
+  - {step: displacement_first_estimate, method: "CD = DWT/Disp = 0.8 -> 93750 t", source: p.14}
+  - {step: length_estimates, method: "Schneekluth, Dankwardt, Ashik, parent range -> 190-240 m", source: p.15-16}
+  - {step: dimension_sweep, method: "L=200..240 m, B,D,T from mean ratios, CB Dankwardt, lightship Watson-Gilfillan", source: "p.17-19 Table 2.3"}
+  - {step: length_selection, method: "DWT-vs-L interpolation -> L=220.5 m", source: p.19}
+  - {step: form_coefficients, method: "CW, CM, CP empirical", source: p.19-20}
+  - {step: lines, method: "BSRA series charts + transom stern, faired manually", source: "p.20-24, 48-50"}
+  - {step: capacity_prelim, method: "empirical volume formulas", source: "p.37-40"}
+  - {step: stability_prelim, method: "Prohaska", source: "p.40-42"}
+  - {step: freeboard, method: "ILLC Type B-60", source: "p.43-44"}
+  - {step: hydrostatics, method: "Bonjean by Simpson + software output", source: "p.51-57"}
+  - {step: resistance, method: "Holtrop-Mennen in NavCad (+ 'MAXSURF' table)", source: "p.60-63"}
+  - {step: propulsion, method: "empirical w,t; Wageningen B-series Bp-delta charts", source: "p.66-71"}
+  - {step: detailed_mass, method: "Watson & Gilfillan with LCG/VCG", source: "p.91-94"}
+  - {step: capacity_detailed, method: "Simpson's rule / Autohydro", source: "p.95-98"}
+  - {step: trim_stability, method: "Autohydro, IMO criteria", source: "p.100-112"}
+
+provenance:
+  source_document: "kiran.pdf (project shared folder), 167 pages, PDF modified 2019-06-12"
+  calculation_method: "hand calculation, spreadsheets (not available), NavCad, Autohydro, hydrostatics software (MAXSURF-style output)"
+  transcribed_by: "Claude (project assistant), 2026-11-07, from pdftotext extraction + page images"
+  assumptions:
+    - "Seawater density 1.025 t/m3 and shell factor 1.006 as used in the report."
+    - "Where the report conflicts, adopted value is the one used downstream in the most calculations; see missing_data_register."
+    - "Printed page numbers refer to the report's own pagination."
+  unavailable_sources:
+    - spreadsheets
+    - Rhino model
+    - MAXSURF model
+    - NavCad project
+    - Autohydro model
+    - "lines plan, general arrangement, midship drawings (listed in report but not in the PDF)"
