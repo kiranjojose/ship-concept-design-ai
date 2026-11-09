@@ -113,9 +113,22 @@ The seed is 20261109.
 
 `constraints.checks._c` now casts each value and the pass flag to plain Python types. With numpy inputs, `satisfied` was a numpy bool, so `satisfied is False` was never true and **failed checks were summarised as unknown**. Sprint 1 used Python floats, so its results are unaffected. The regression test is `test_numpy_inputs_do_not_hide_failures`.
 
-## 6. Not done yet / next
+## 6. Comparison with the 2019 length sweep
 
-- **Optimisation (D3.3)** is held back. The plan's objective, brake power, needs Holtrop, which stays out of ranking until the benchmark closes. A Holtrop-free objective is possible now, for example minimum displacement or steel mass subject to the robust deadweight constraint.
-- **The report's manual length sweep, rerun automatically.** The weight model reproduces Table 2.3 row by row. The time and candidate-count comparison is still to write.
-- **Freeboard per candidate (S2-A2)** would make the largest single change to the feasible set.
-- **LOA.** Every status stays unknown until an LOA, or an overhang rule from the report, is available.
+Run `PYTHONPATH=src python experiments/03_design_space/rerun_report_sweep.py` from the repository root. The replay takes the dimensions and displacement from Table 2.3, derives the block coefficient implied by that displacement, and recomputes nominal lightship and deadweight with the same weight function used in Sprint 2.
+
+| Measure | 2019 report, pp. 18–19 | Automated replay |
+|---|---|---|
+| Cases | Nine distinct grid lengths from 200 to 240 m in 5 m steps, plus the selected 220.5 m case. The last 205 m column repeats an earlier case. | The same nine grid cases and one selected case |
+| Time | The report gives no elapsed time. | About 0.05 ms median per ten-case replay on the Mac, including reading the CSV. Five batches of 1,000 replays, excluding interpreter startup, transcription and output. |
+| Selected case | 220.5 m LPP and 75,158.54 t nominal deadweight in Table 2.4 | 220.5 m LPP and 75,160.47 t nominal deadweight, a difference of 1.93 t |
+
+The replay brackets 75,000 t between 220 m (74,189.68 t) and 225 m (79,689.80 t). Linear interpolation between those two cases gives 220.737 m. Figure 2.6 plots points around 216–218 m, consistent with the parent-ship data, so it does not establish how the report selected 220.5 m. The selected row clears the target because of its block coefficient, not its length: it uses CB 0.8301 (implied by its displacement), while the grid trend at 220.5 m gives 0.8264. On the grid trend a 220.5 m ship gives about 74,730 t, roughly 270 t short; the higher CB alone adds about 375 t. The separately published 220.5 m row clears the nominal target on the report's sizing basis.
+
+The geometry-based Sprint 2 evaluation of the same 220.5 m reference falls 1,195 t short at nominal and 2,550 t short in the worst scenario. That change in verdict is the engineering comparison for the exit gate. The 300-case geometry sweep took 78.6 s in the recorded run and evaluates a broader set of inputs and constraints than the sizing replay.
+
+## 7. Sprint scope and open checks
+
+- **Optimisation (D3.3).** Defer it for this sprint. Minimum displacement under the robust deadweight constraint would be a different objective from brake power and would tend to reward solutions close to the minimum required deadweight and lightship. The sweep and reference comparison answer the current engineering question without ranking candidates on Holtrop or on a substitute objective.
+- **Freeboard (S2-A2).** The sprint applies the reference 5.00 m minimum as a screening assumption for all candidates. The 95 freeboard failures are conditional on this assumption. Candidate-specific ILLC calculations are outside this sprint.
+- **LOA (MISS-09).** The report gives the Hay Point limit of 300 m on p. 9. Table 3.1 on p. 48 gives profile offsets relative to FP and AP, including an LWL stern offset of −7.4 (forward positive). Tables 2.5 and 2.6 on pp. 21–22 show the earlier stem and stern profiles. The software gives a waterline length of 228.149 m on p. 57. These are partial profile and waterline data. The report does not give the full longitudinal extent or a rule for candidate overhangs, so LOA remains unknown for every candidate.

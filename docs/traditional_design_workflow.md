@@ -16,7 +16,7 @@ Length estimates: Schneekluth, Dankwardt, Ashik, parent range -> 190-240 m      
 Dimension sweep L = 200..240 m: B, D, T from ratios; CB from Dankwardt;            [spreadsheet]  <- automatable (WP2/3)
 lightship from Watson-Gilfillan; DWT = Disp - LS
         |
-Select L from DWT-vs-L curve -> L = 220.5 m                                         [spreadsheet + judgement]
+Select L = 220.5 m (Table 2.4, selection rationale unclear)                        [spreadsheet + judgement]
         |
 Form coefficients CW, CM, CP (empirical)                                            [manual]
         |
