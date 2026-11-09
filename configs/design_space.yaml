@@ -1,13 +1,22 @@
-# Design-space bounds (WP3). DELIBERATELY NULL until bounds are agreed.
-# Candidate evidence, for information only (not adopted):
+# Design-space bounds (WP3, Sprint 2).
+# STATUS: AGREED by Kiran, 9 Nov 2026. Every bound is taken from
+# evidence in the REPORT; none is a new requirement.
 #   - parent ships (Table 2.1, n=16): LBP 216-218 m, B 32.2-36.5 m, D 18.35-19.8 m, T 12.63-14.233 m
-#   - report sweep (Table 2.3): LBP 200-240 m at fixed parent-ship ratios
-#   - port limits: Hay Point LOA<=300 m, B<=53 m, T<=17.6 m; Bhorsagar depth 16.41 m
-#   - Holtrop-Mennen validity limits to be added from the method paper in WP2
+#   - report sweep (Table 2.3): LBP 200-240 m, B 29.7-35.7 m, T 12.96-15.55 m, CB 0.81-0.84
+#   - Dankwardt CB = 0.975 - 0.9 Fn +/- 0.02 (p.16): 0.82-0.87 for L = 200-240 m at 13 kn
+#   - port limits (checked as constraints, not used as bounds): Hay Point B<=53 m, T<=17.6 m;
+#     Bhorsagar depth 16.41 m
+status: agreed  # Kiran, 9 Nov 2026
 design_space:
-  lpp_m:             {min: null, max: null}
-  breadth_m:         {min: null, max: null}
-  draught_m:         {min: null, max: null}
-  depth_m:           {min: null, max: null}
-  block_coefficient: {min: null, max: null}
-  service_speed_kn:  {fixed: 13.0}   # requirement, REPORT p.8
+  lpp_m:             {min: 200.0, max: 240.0, source: "REPORT Table 2.3 sweep range"}
+  breadth_m:         {min: 29.7,  max: 36.5,  source: "Table 2.3 lowest B to Table 2.1 highest B"}
+  draught_m:         {min: 12.6,  max: 15.6,  source: "Table 2.1 lowest T to Table 2.3 highest T"}
+  block_coefficient: {min: 0.80,  max: 0.87,  source: "Table 2.3 lower end (0.81) less 0.01, to Dankwardt upper band (0.87)",
+                      basis: "target for the integrated CB on LPP and waterline beam at the candidate draught"}
+  depth_m:           {rule: "L / 11.165 (reference L/D 220.5/19.75; REPORT p.16 mean parent L/D 11.16)"}
+  service_speed_kn:  {fixed: 13.0, source: "REPORT p.8"}
+sampling:
+  method: latin_hypercube
+  n_samples: 300
+  seed: 20261109
+  include_reference: true

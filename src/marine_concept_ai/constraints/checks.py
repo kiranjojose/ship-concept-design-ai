@@ -44,8 +44,10 @@ class ConstraintResult:
 def _c(name, value, limit, sense, source, note=""):
     if value is None:
         return ConstraintResult(name, None, limit, sense, None, None, source, note or "input missing")
+    # plain Python types: a numpy bool would make `satisfied is False` untrue and hide a failure
+    value = float(value)
     margin = (limit - value) if sense == "<=" else (value - limit)
-    return ConstraintResult(name, value, limit, sense, margin, margin >= 0, source, note)
+    return ConstraintResult(name, value, limit, sense, margin, bool(margin >= 0), source, note)
 
 
 def check_design(d: dict, limits: dict | None = None) -> list[ConstraintResult]:

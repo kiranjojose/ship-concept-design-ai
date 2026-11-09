@@ -1,0 +1,9 @@
+variable,dwt_basis,reference,required,change,change_pct,depth_m,freeboard_m,status,fails_other_than_dwt,unknown,margin_freeboard_m,margin_stowage_m3_per_t,note
+L,nominal,220.5,224.482,3.98213,1.80596,20.1067,5.81668,unknown,,LOA vs Hay Point,0.816666,0.0589858,
+L,worst,220.5,229.292,8.79181,3.98722,20.5375,6.24748,unknown,,LOA vs Hay Point,1.24747,0.0850699,
+B,nominal,32.78,33.2969,0.51694,1.577,19.75,5.46,unknown,,LOA vs Hay Point,0.45999,0.0368618,
+B,worst,32.78,33.9009,1.12092,3.41952,19.75,5.46,unknown,,LOA vs Hay Point,0.45999,0.0361491,
+T,nominal,14.29,14.4881,0.19814,1.38656,19.75,5.26186,unknown,,LOA vs Hay Point,0.26185,0.0200051,
+T,worst,14.29,14.7144,0.424434,2.97015,19.75,5.03557,unknown,,LOA vs Hay Point,0.0355555,0.000701167,
+CB,nominal,0.816615,0.82846,0.0118451,1.45051,19.75,5.46,unknown,,LOA vs Hay Point,0.45999,0.0332577,
+CB,worst,0.816615,0.841524,0.0249093,3.05032,19.75,5.46,unknown,,LOA vs Hay Point,0.45999,0.0287337,

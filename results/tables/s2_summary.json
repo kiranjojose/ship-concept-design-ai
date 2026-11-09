@@ -1,0 +1,42 @@
+{
+  "design_space_status": "agreed",
+  "n_candidates": 300,
+  "seed": 20261109,
+  "geometry_not_realisable": 0,
+  "status_counts": {
+    "fail": 206,
+    "unknown": 94
+  },
+  "dwt_verdict_counts": {
+    "short": 144,
+    "robust": 132,
+    "nominal_only": 18,
+    "best_case_only": 6
+  },
+  "dwt_verdict_counts_passing_other_checks": {
+    "short": 100,
+    "robust": 80,
+    "nominal_only": 14,
+    "best_case_only": 2
+  },
+  "fails_other_than_dwt_counts": {
+    "freeboard D-T": 95,
+    "hold volume / cargo mass": 91
+  },
+  "unknown_checks": {
+    "LOA vs Hay Point": 300
+  },
+  "reference": {
+    "cb": 0.8166604931040414,
+    "disp_pchip_t": 86978.75051136782,
+    "lightship_nominal_t": 13174.108068771324,
+    "dwt_margin_nominal_t": -1195.3575574035058,
+    "dwt_margin_worst_t": -2550.4381845945027,
+    "dwt_margin_best_t": -655.4069270610344,
+    "pe_indicator_1982_kw": 4339.342838246508,
+    "pe_indicator_1984_kw": 4243.594630822547,
+    "status": "fail"
+  },
+  "runtime_s": 78.6,
+  "note": "Holtrop PE is an indicator only; no ranking is made on it."
+}
