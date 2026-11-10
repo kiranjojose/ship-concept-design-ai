@@ -5,7 +5,7 @@ Draft v0.1, 9 Nov 2026. To reproduce:
 ```
 python experiments/03_design_space/run_sweep.py      # results/tables/s2_*  (about 80 s)
 python experiments/03_design_space/make_figures.py   # results/figures/s2_*
-pytest -rxs                                          # 79 passed, 2 xfailed (the two open Holtrop items)
+pytest -rxs                                          # 81 passed, 2 xfailed (the two open Holtrop items)
 ```
 
 Rules from Kiran (9 Nov) that this sweep follows:
@@ -129,6 +129,6 @@ The geometry-based Sprint 2 evaluation of the same 220.5 m reference falls 1,195
 
 ## 7. Sprint scope and open checks
 
-- **Optimisation (D3.3).** Defer it for this sprint. Minimum displacement under the robust deadweight constraint would be a different objective from brake power and would tend to reward solutions close to the minimum required deadweight and lightship. The sweep and reference comparison answer the current engineering question without ranking candidates on Holtrop or on a substitute objective.
+- **Optimisation (D3.3).** Brake-power optimisation was deferred at the Sprint 2 exit gate. The follow-up [displacement search](../experiments/04_optimization/compare_search.py) compares random search and differential evolution on a separate objective, minimum nominal displacement subject to at least 75,000 t DWT in every modelled scenario and the existing concept screens.
 - **Freeboard (S2-A2).** The sprint applies the reference 5.00 m minimum as a screening assumption for all candidates. The 95 freeboard failures are conditional on this assumption. Candidate-specific ILLC calculations are outside this sprint.
 - **LOA (MISS-09).** The report gives the Hay Point limit of 300 m on p. 9. Table 3.1 on p. 48 gives profile offsets relative to FP and AP, including an LWL stern offset of −7.4 (forward positive). Tables 2.5 and 2.6 on pp. 21–22 show the earlier stem and stern profiles. The software gives a waterline length of 228.149 m on p. 57. These are partial profile and waterline data. The report does not give the full longitudinal extent or a rule for candidate overhangs, so LOA remains unknown for every candidate.

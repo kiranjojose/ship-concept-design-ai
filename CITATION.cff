@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using the metadata in this file."
+title: "Ship Concept Design AI"
+type: software
+authors:
+  - given-names: Kiran Jose
+    family-names: Puthussery
+repository-code: "https://github.com/kiranjojose/ship-concept-design-ai"
+license: MIT
