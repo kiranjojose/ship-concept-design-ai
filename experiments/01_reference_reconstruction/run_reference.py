@@ -1,7 +1,7 @@
 """Sprint 1: rebuild the reference bulk carrier with the engine and compare with REPORT.
 
 Run from the repo root:  python experiments/01_reference_reconstruction/run_reference.py
-Writes CSV tables to results/tables/ and a summary to results/reports/.
+Writes CSV tables and a JSON summary to results/tables/.
 """
 from __future__ import annotations
 
@@ -20,7 +20,6 @@ from marine_concept_ai.resistance import holtrop_mennen, holtrop_validity
 
 ROOT = Path(__file__).resolve().parents[2]
 TAB = ROOT / "results" / "tables"
-REP = ROOT / "results" / "reports"
 REF = ROOT / "data" / "reference"
 
 
@@ -180,7 +179,6 @@ def constraints_reference():
 
 def main():
     TAB.mkdir(parents=True, exist_ok=True)
-    REP.mkdir(parents=True, exist_ok=True)
     hyd = hydrostatics_comparison()
     res = resistance_comparison()
     tr = transom_sensitivity()
